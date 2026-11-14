@@ -55,6 +55,9 @@ input{width:100%;font:600 28px "Public Sans",sans-serif;padding:14px 16px;margin
 .rel{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:16px;margin:0 0 12px}
 .lock{border:1px dashed var(--accent);border-radius:10px;padding:16px;margin:20px 0}
 .lock .blur{filter:blur(4px);user-select:none;color:var(--muted);font-size:15px;margin:8px 0 0}
+details{border-bottom:1px solid var(--line);padding:12px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:8px 0 0;color:var(--muted);font-size:16px}
 </style>
 </head>
 <body>
@@ -136,8 +139,27 @@ input{width:100%;font:600 28px "Public Sans",sans-serif;padding:14px 16px;margin
       <strong>Mise en demeure : verrouillée</strong>
       <p class="blur">Madame, Monsieur, par la présente, je vous mets en demeure de régler la somme due dans un délai de huit jours à compter de la réception de ce courrier, faute de quoi…</p>
       <button class="btn" id="unlock" style="margin-top:14px">Débloquer la mise en demeure</button>
-      <p class="note" id="soon" hidden>Le paiement s’active à la prochaine étape.</p>
+      
     </div>
+  </div>
+
+  <div class="scr" id="pay" hidden>
+    <h2>Votre plan est prêt.</h2>
+    <p>Relance rédigée, relances à 7, 15 et 30 jours, mise en demeure prête : il ne reste qu’à l’activer.</p>
+    <p class="big" id="pamt"></p>
+    <p>dus par vos clients, contre 79 € par mois pour les récupérer.</p>
+    <div class="lock" style="border-style:solid">
+      <strong>Satisfait ou remboursé pendant 14 jours</strong>
+      <p>Répondez à l’email d’accès par « Je veux être remboursé », sans justification. Remboursement sous 5 jours ouvrés.</p>
+    </div>
+    <div class="fig"><b>79 €</b><p>par mois, soit environ 2,60 € par jour.</p></div>
+    <a class="btn" style="margin-top:16px" href="https://buy.stripe.com/test_9B6dR9dWS4Rxe6nf2u1VK00">Débloquer pour 79 € par mois</a>
+    <p class="note">Sans engagement, résiliable à tout moment.</p>
+    <h2 style="margin-top:28px">Questions fréquentes</h2>
+    <details><summary>Est-ce que ça marche pour mon cas ?</summary><p>Recouvre est fait pour les indépendants et petites structures qui facturent d’autres professionnels. Si vos clients sont des particuliers, la mise en demeure ne s’applique pas de la même façon.</p></details>
+    <details><summary>Combien de temps ça me prend ?</summary><p>Environ deux minutes par facture : vous saisissez le montant et l’échéance, Recouvre s’occupe des relances.</p></details>
+    <details><summary>Et si je veux arrêter ?</summary><p>Vous résiliez en un clic, sans justification. Et pendant 14 jours, vous pouvez être remboursé sur simple email.</p></details>
+    <details><summary>À quoi sert ce que je paie ?</summary><p>À ce que vos relances partent à l’heure, sans que vous ayez à y penser, et à une mise en demeure prête à envoyer.</p></details>
   </div>
 </div>
 </div>
@@ -174,7 +196,7 @@ $('copy').onclick=function(){
   var t=$('rel').textContent;
   try{navigator.clipboard.writeText(t).then(function(){$('copied').hidden=false})}catch(e){$('copied').textContent='Sélectionnez le texte et copiez-le.';$('copied').hidden=false}
 };
-$('unlock').onclick=function(){$('soon').hidden=false};
+$('unlock').onclick=function(){$('pamt').textContent=fmt(st.a);show('pay')};
 })();
 </script>
 </body>
