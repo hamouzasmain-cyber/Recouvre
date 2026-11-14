@@ -1,0 +1,87 @@
+index.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recouvre — Vos factures impayées, relancées à votre place</title>
+<meta name="description" content="Relances automatiques à 7, 15 et 30 jours, puis mise en demeure prête à envoyer. Commencez gratuitement.">
+<meta property="og:title" content="Recouvre — Vos factures impayées, relancées à votre place">
+<meta property="og:description" content="Relances automatiques à 7, 15 et 30 jours, puis mise en demeure prête à envoyer.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F4EE;--card:#FFFFFF;--ink:#14213D;--muted:#5B6270;--line:#D9D3C7;--accent:#B8480F;--accent-ink:#FFFFFF;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1424;--card:#16203A;--ink:#F1EDE4;--muted:#A9B0C0;--line:#2B3858;--accent:#E8793A;--accent-ink:#0E1424;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1424;--card:#16203A;--ink:#F1EDE4;--muted:#A9B0C0;--line:#2B3858;--accent:#E8793A;--accent-ink:#0E1424;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Public Sans",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.brand{padding:20px 0 8px;font:800 22px "Fraunces",Georgia,serif;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+h1{font:800 clamp(32px,9vw,48px)/1.08 "Fraunces",Georgia,serif;letter-spacing:-.02em;margin:20px 0 14px}
+h2{font:600 24px/1.2 "Fraunces",Georgia,serif;margin:0 0 14px}
+.sub{font-size:18px;color:var(--muted);margin:0 0 24px}
+.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-ink);font:600 18px "Public Sans",sans-serif;padding:18px 20px;border-radius:10px;text-decoration:none;min-height:56px}
+.note{font-size:14px;color:var(--muted);text-align:center;margin:10px 0 0}
+section{padding:36px 0;border-top:1px solid var(--line)}
+.pain{border-left:4px solid var(--accent);padding-left:16px;font-size:18px;margin:0 0 20px}
+.fig{display:flex;gap:16px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.fig b{font:800 34px/1 "Fraunces",Georgia,serif;color:var(--accent);white-space:nowrap}
+.fig p{margin:0;font-size:15px;color:var(--muted)}
+ol{list-style:none;margin:0;padding:0;counter-reset:b}
+li{counter-increment:b;display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li::before{content:counter(b);font:800 26px/1.1 "Fraunces",Georgia,serif;color:var(--accent);min-width:22px}
+li strong{display:block}
+li span{color:var(--muted);font-size:16px}
+footer{padding:28px 0 96px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer a{color:var(--muted);margin-right:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{max-width:600px;margin:0 auto}
+@media (min-width:700px){.bar{display:none}footer{padding-bottom:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Recouvre<span>.</span></div>
+  <main>
+    <h1>Vos factures impayées, relancées à votre place, jusqu’à la mise en demeure.</h1>
+    <p class="sub">Plus de gêne, plus d’oubli. Recouvre écrit les relances au bon moment, et prépare la lettre finale.</p>
+    <a class="btn" href="#questions">Commencer gratuitement</a>
+    <p class="note">Trois questions, deux minutes, sans carte bancaire.</p>
+
+    <section>
+      <h2>L’argent est dû. Il n’est simplement jamais demandé.</h2>
+      <p class="pain">Une facture impayée depuis trois mois a bien moins de chances d’être réglée. Pendant ce temps, votre argent dort chez votre client, et votre trésorerie, elle, manque.</p>
+      <div class="fig"><b>1 500 €</b><p>Une seule facture de ce montant récupérée couvre près de 19 mois d’abonnement.</p></div>
+    </section>
+
+    <section>
+      <h2>Ce que Recouvre fait pour vous</h2>
+      <ol>
+        <li><div><strong>Relances automatiques</strong><span>À 7, 15 et 30 jours : vous n’y pensez plus.</span></div></li>
+        <li><div><strong>Mise en demeure prête à envoyer</strong><span>Une lettre en bonne et due forme, en un clic.</span></div></li>
+        <li><div><strong>Un tableau clair en euros</strong><span>Ce qui est dû, relancé, encaissé.</span></div></li>
+      </ol>
+    </section>
+
+    <section id="questions">
+      <h2>Prêt ? Trois questions suffisent.</h2>
+      <p class="sub">Vous verrez ce que vos retards vous coûtent, puis votre première relance, prête à copier.</p>
+      <a class="btn" href="#questions">Commencer gratuitement</a>
+      <p class="note">Gratuit, sans carte bancaire.</p>
+    </section>
+  </main>
+  <footer>
+    <p><a href="#mentions">Mentions légales</a><a href="#cgv">CGV</a><a href="#confidentialite">Confidentialité</a></p>
+    <p>Recouvre — Anzizi Smain, entrepreneur individuel<br>SIRET : [à compléter] · Adresse : [à compléter]</p>
+  </footer>
+</div>
+<div class="bar"><a class="btn" href="#questions">Commencer gratuitement</a></div>
+</body>
+</html>
