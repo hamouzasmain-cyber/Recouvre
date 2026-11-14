@@ -17,15 +17,17 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1424;--card:#16203A;--ink:#F1EDE4;--muted:#A9B0C0;--line:#2B3858;--accent:#E8793A;--accent-ink:#0E1424;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0E1424;--card:#16203A;--ink:#F1EDE4;--muted:#A9B0C0;--line:#2B3858;--accent:#E8793A;--accent-ink:#0E1424;color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Public Sans",system-ui,sans-serif;-webkit-text-size-adjust:100%}
 .wrap{max-width:640px;margin:0 auto;padding:0 20px}
-.brand{padding:20px 0 8px;font:800 22px "Fraunces",Georgia,serif;letter-spacing:-.01em}
-.brand span{color:var(--accent)}
+.brand{padding:20px 0 8px;font:800 22px "Fraunces",Georgia,serif}
+.brand span,.big{color:var(--accent)}
 h1{font:800 clamp(32px,9vw,48px)/1.08 "Fraunces",Georgia,serif;letter-spacing:-.02em;margin:20px 0 14px}
 h2{font:600 24px/1.2 "Fraunces",Georgia,serif;margin:0 0 14px}
 .sub{font-size:18px;color:var(--muted);margin:0 0 24px}
-.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-ink);font:600 18px "Public Sans",sans-serif;padding:18px 20px;border-radius:10px;text-decoration:none;min-height:56px}
+.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-ink);font:600 18px "Public Sans",sans-serif;padding:18px 20px;border:0;border-radius:10px;text-decoration:none;min-height:56px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--ink);font:600 18px "Public Sans",sans-serif;padding:16px;border:1px solid var(--line);border-radius:10px;min-height:56px;margin:0 0 12px;cursor:pointer}
 .note{font-size:14px;color:var(--muted);text-align:center;margin:10px 0 0}
 section{padding:36px 0;border-top:1px solid var(--line)}
 .pain{border-left:4px solid var(--accent);padding-left:16px;font-size:18px;margin:0 0 20px}
@@ -43,23 +45,32 @@ footer a{color:var(--muted);margin-right:14px}
 .bar{position:fixed;left:0;right:0;bottom:0;padding:10px 20px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
 .bar .btn{max-width:600px;margin:0 auto}
 @media (min-width:700px){.bar{display:none}footer{padding-bottom:28px}}
+.track{height:6px;background:var(--line);border-radius:3px;margin:18px 0 8px}
+#prog{height:6px;background:var(--accent);border-radius:3px;width:0;transition:width .3s}
+.stp{font-size:14px;color:var(--muted);margin:0 0 24px}
+input{width:100%;font:600 28px "Public Sans",sans-serif;padding:14px 16px;margin:0 0 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.err{color:var(--accent);font-size:15px;margin:-6px 0 12px}
+.big{font:800 clamp(40px,12vw,56px)/1 "Fraunces",Georgia,serif;margin:6px 0}
+.res p{margin:0 0 14px}
+.rel{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:16px;margin:0 0 12px}
+.lock{border:1px dashed var(--accent);border-radius:10px;padding:16px;margin:20px 0}
+.lock .blur{filter:blur(4px);user-select:none;color:var(--muted);font-size:15px;margin:8px 0 0}
 </style>
 </head>
 <body>
 <div class="wrap">
+<div id="home">
   <div class="brand">Recouvre<span>.</span></div>
   <main>
     <h1>Vos factures impayées, relancées à votre place, jusqu’à la mise en demeure.</h1>
     <p class="sub">Plus de gêne, plus d’oubli. Recouvre écrit les relances au bon moment, et prépare la lettre finale.</p>
-    <a class="btn" href="#questions">Commencer gratuitement</a>
+    <button class="btn" data-start>Commencer gratuitement</button>
     <p class="note">Trois questions, deux minutes, sans carte bancaire.</p>
-
     <section>
       <h2>L’argent est dû. Il n’est simplement jamais demandé.</h2>
       <p class="pain">Une facture impayée depuis trois mois a bien moins de chances d’être réglée. Pendant ce temps, votre argent dort chez votre client, et votre trésorerie, elle, manque.</p>
       <div class="fig"><b>1 500 €</b><p>Une seule facture de ce montant récupérée couvre près de 19 mois d’abonnement.</p></div>
     </section>
-
     <section>
       <h2>Ce que Recouvre fait pour vous</h2>
       <ol>
@@ -68,11 +79,10 @@ footer a{color:var(--muted);margin-right:14px}
         <li><div><strong>Un tableau clair en euros</strong><span>Ce qui est dû, relancé, encaissé.</span></div></li>
       </ol>
     </section>
-
-    <section id="questions">
+    <section>
       <h2>Prêt ? Trois questions suffisent.</h2>
       <p class="sub">Vous verrez ce que vos retards vous coûtent, puis votre première relance, prête à copier.</p>
-      <a class="btn" href="#questions">Commencer gratuitement</a>
+      <button class="btn" data-start>Commencer gratuitement</button>
       <p class="note">Gratuit, sans carte bancaire.</p>
     </section>
   </main>
@@ -80,7 +90,92 @@ footer a{color:var(--muted);margin-right:14px}
     <p><a href="#mentions">Mentions légales</a><a href="#cgv">CGV</a><a href="#confidentialite">Confidentialité</a></p>
     <p>Recouvre — Anzizi Smain, entrepreneur individuel<br>SIRET : [à compléter] · Adresse : [à compléter]</p>
   </footer>
+  <div class="bar"><button class="btn" data-start>Commencer gratuitement</button></div>
 </div>
-<div class="bar"><a class="btn" href="#questions">Commencer gratuitement</a></div>
+
+<div id="tunnel" hidden>
+  <div class="brand">Recouvre<span>.</span></div>
+  <div class="track"><div id="prog"></div></div>
+  <p class="stp" id="stp"></p>
+
+  <div class="scr" id="q1" hidden>
+    <h2>Combien de factures sont impayées en ce moment ?</h2>
+    <button class="opt" data-n="1" data-l="1 facture">Une</button>
+    <button class="opt" data-n="2" data-l="2 à 5 factures">De deux à cinq</button>
+    <button class="opt" data-n="6" data-l="Plus de 5 factures">Plus de cinq</button>
+  </div>
+
+  <div class="scr" id="q2" hidden>
+    <h2>Quel est le montant total dû, à peu près ?</h2>
+    <input id="amt" type="text" inputmode="numeric" autocomplete="off" placeholder="Ex. 4 200" aria-label="Montant en euros">
+    <p class="err" id="err" hidden>Entrez un montant en euros, par exemple 4200.</p>
+    <button class="btn" id="go2">Continuer</button>
+    <p class="note">En euros, tous clients confondus.</p>
+  </div>
+
+  <div class="scr" id="q3" hidden>
+    <h2>Depuis combien de temps la plus ancienne est-elle en retard ?</h2>
+    <button class="opt" data-a="moins d’un mois">Moins d’un mois</button>
+    <button class="opt" data-a="un à trois mois">Un à trois mois</button>
+    <button class="opt" data-a="plus de trois mois">Plus de trois mois</button>
+  </div>
+
+  <div class="scr res" id="res" hidden>
+    <h2 id="r-h"></h2>
+    <p class="big" id="r-amt"></p>
+    <p id="r-age"></p>
+    <p id="r-law"></p>
+    <p id="r-mo"></p>
+    <h2 style="margin-top:28px">Ce que Recouvre change</h2>
+    <p>Vos relances partent à 7, 15 et 30 jours, sans que vous ayez à y penser. Si rien ne bouge, la mise en demeure est prête.</p>
+    <h2 style="margin-top:28px">Voici votre première relance, prête</h2>
+    <div class="rel" id="rel"></div>
+    <button class="btn" id="copy">Copier la relance</button>
+    <p class="note" id="copied" hidden>Copiée. Remplacez les crochets avant d’envoyer.</p>
+    <div class="lock">
+      <strong>Mise en demeure : verrouillée</strong>
+      <p class="blur">Madame, Monsieur, par la présente, je vous mets en demeure de régler la somme due dans un délai de huit jours à compter de la réception de ce courrier, faute de quoi…</p>
+      <button class="btn" id="unlock" style="margin-top:14px">Débloquer la mise en demeure</button>
+      <p class="note" id="soon" hidden>Le paiement s’active à la prochaine étape.</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},st={n:1,l:'',a:0,g:''};
+var fmt=function(v){return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v)};
+function show(id){
+  document.querySelectorAll('.scr').forEach(function(s){s.hidden=s.id!==id});
+  var p={q1:1,q2:2,q3:3}[id];
+  $('prog').style.width=(p?p*33:100)+'%';
+  $('stp').textContent=p?'Question '+p+' sur 3':'Votre résultat';
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-start]').forEach(function(b){b.onclick=function(){$('home').hidden=true;$('tunnel').hidden=false;show('q1')}});
+document.querySelectorAll('#q1 .opt').forEach(function(b){b.onclick=function(){st.n=+b.dataset.n;st.l=b.dataset.l;show('q2')}});
+$('go2').onclick=function(){
+  var v=parseInt($('amt').value.replace(/[^\d]/g,''),10);
+  if(!v||v<1||v>10000000){$('err').hidden=false;return}
+  $('err').hidden=true;st.a=v;show('q3');
+};
+document.querySelectorAll('#q3 .opt').forEach(function(b){b.onclick=function(){st.g=b.dataset.a;result()}});
+function result(){
+  $('r-h').textContent=st.l+' en retard. Voilà ce que ça vous coûte.';
+  $('r-amt').textContent=fmt(st.a);
+  $('r-age').textContent='dorment chez vos clients. La plus ancienne attend depuis '+st.g+'.';
+  $('r-law').textContent='Entre professionnels, la loi prévoit une indemnité forfaitaire de 40 € par facture en retard : au moins '+fmt(st.n*40)+' que vous êtes en droit de réclamer.';
+  var m=Math.round(st.a/79);
+  $('r-mo').textContent=m>=1?'Récupérer cette somme, c’est l’équivalent de '+m+' mois de Recouvre à 79 €.':'';
+  $('rel').textContent='Bonjour [Prénom du client],\n\nSauf erreur de ma part, ma facture n° [numéro], d’un montant total de '+fmt(st.a)+', échue le [date d’échéance], reste à ce jour impayée.\n\nMerci de bien vouloir procéder au règlement sous 8 jours.\n\nSi le paiement a déjà été effectué, merci de ne pas tenir compte de ce message.\n\nCordialement,\n[Votre nom]';
+  show('res');
+}
+$('copy').onclick=function(){
+  var t=$('rel').textContent;
+  try{navigator.clipboard.writeText(t).then(function(){$('copied').hidden=false})}catch(e){$('copied').textContent='Sélectionnez le texte et copiez-le.';$('copied').hidden=false}
+};
+$('unlock').onclick=function(){$('soon').hidden=false};
+})();
+</script>
 </body>
 </html>
